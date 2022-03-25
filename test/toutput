@@ -1,0 +1,16 @@
+Press C to continue next turn, or E to end the game
+1 1 1 2 N 3
+2 2 1 3 N 4
+3 1 3 4 S 4
+4 2 4 5 N 9
+5 1 4 6 L 13
+6 2 9 1 L 13
+7 1 13 2 L 18
+8 2 13 3 N 16
+9 1 18 4 N 22
+10 2 16 5 N 21
+11 1 22 6 N 28
+12 2 21 1 N 22
+13 1 28 2 N 30
+--GAME OVER--
+Player 1 is the winner!!!
