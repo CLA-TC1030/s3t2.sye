@@ -20,7 +20,7 @@ classDiagram
       Game --> "2" Jugador
       Game --> "1" Dado
       
-      Game:+getInput() string
+      Game:+getInput()* string
       Game:+start()
       Game:+endGame() bool
       GameAutomatic:+getInput()* string
