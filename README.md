@@ -22,7 +22,7 @@ classDiagram
       
       Game:+getInput()* string
       Game:+start()
-      Game:+endGame() bool
+  
       GameAutomatic:+getInput() string
       GameManual:+getInput() string
       Jugador: -numero
