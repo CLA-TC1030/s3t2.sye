@@ -3,7 +3,7 @@
 #include <tuple>
 
 #define CATCH_CONFIG_MAIN // defines main() automatically
-#include "catch.hpp"
+#include "catch_amalgamated.hpp"
 
 #include "../Ctesconf.hpp"
 #include "../CCasilla.hpp"
