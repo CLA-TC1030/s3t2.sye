@@ -2,10 +2,10 @@
 
 ## Descripción del Problema
 
-Esta tarea consiste en implementar el Juego de Serpientes y Escaleras basado en Composición y Herencia.
+Esta tarea consiste en extender el Juego de Serpientes y Escaleras usando Polimorfismo.
 
 ## Diagrama de Clases
-
+Construye aquí el Diagrama de Clases de tu solución, usando el [Lenguaje Mermaid](https://mermaid.js.org/syntax/classDiagram.html).
 ```mermaid
 classDiagram
       class Game
@@ -30,8 +30,7 @@ classDiagram
       Casilla: -tipo
       Dado: -valor
 ```
-
-
+Puedes apoyarte con el editor [Mermaid-live](https://mermaid.live/).
 ## Objetivo
 
 - Busca que el código pase correctamente todas las pruebas
