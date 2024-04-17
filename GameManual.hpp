@@ -4,7 +4,7 @@
 
 class GameManual:public Game {
 protected:
-    std::string getInput();   
+    std::string getInput() override;   
 public:
     GameManual(std::string, bool, bool);
 };
