@@ -195,5 +195,6 @@ TEST_CASE("ex9", "[Ejecucion de Juego Automatico]")
         ga.start();
             
         REQUIRE(isC);   
-        REQUIRE(chkFiles("output", "test/toutput")); 
+        REQUIRE(chkFiles("output", "test/toutput"));
+    }
 }
