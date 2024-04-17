@@ -16,9 +16,7 @@ protected:
 
 // Archivos de entrada/salida para el caso de configuracion de IO por archivos ---------
     std::ifstream fi{"input"};
-    std::ofstream fo{"output"};
-
-    virtual std::string getInput()=0;    
+    std::ofstream fo{"output"};    
 public:
     static int turno;
     Game();
@@ -26,4 +24,5 @@ public:
     Game(std::string, bool, bool);
     void start();
     void outMsg(std::string);
+    virtual std::string getInput()=0;
 };
