@@ -5,5 +5,5 @@
 class GameAutomatic:public Game {
 public:
     GameAutomatic(std::string, bool, bool);
-    std::string getInput();
+    std::string getInput() override;
 };
