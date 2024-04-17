@@ -186,7 +186,14 @@ TEST_CASE("ex9", "[Ejecucion de Juego Automatico]")
     SECTION( "Validando Ejecucion de Juego Automatico" ) {
         GameAutomatic ga("t1.tab", false, true);
 
+// Prueba que la entrada del juego es solo "C", no proviene ni del teclado, ni del archivo "input". Proviene del "Automata" imaginario ...
+        bool isC=true;
+        for (auto i=0; i<99; i++) 
+            if (ga.getInput() != "C")
+                isC=false;
+        
         ga.start();
-        REQUIRE(chkFiles("output", "test/toutput"));
-    }
+            
+        REQUIRE(isC);   
+        REQUIRE(chkFiles("output", "test/toutput")); 
 }
