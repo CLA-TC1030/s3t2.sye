@@ -1,7 +1,5 @@
-#include <tuple>
-
 #define CATCH_CONFIG_MAIN // defines main() automatically
-#include "catch_amalgamated.hpp"
+#include <catch2/catch.hpp>
 
 #include "../Ctesconf.hpp"
 #include "../CCasilla.hpp"
