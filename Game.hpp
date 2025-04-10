@@ -22,6 +22,7 @@ public:
     Game();
 // Game("Archivo de tablero")
     Game(std::string);
+    virtual ~Game();
     void start();
     void outMsg(std::string);
 
