@@ -21,23 +21,40 @@ TEST_CASE("ex0", "[Casillas Base bien formadas]")
     CCasilla c1, c2(2,"E"), c3(3,"S");
 
     SECTION( "Validando casillas Base normales" ) {
-        INFO("FUNCIONALIDAD ESPERADA: La casilla base debe iniciar en 1.\nSUGERENCIA DE PROGRAMACIÓN: Verifica el valor inicial en el constructor por omisión de CCasilla.");
+        INFO("FUNCIONALIDAD ESPERADA: La casilla base debe iniciar en 1 por defecto.");
+        INFO("SUGERENCIA DE PROGRAMACIÓN: Verifica que el constructor por omisión de CCasilla inicialice el número en 1.");
         REQUIRE( c1.getNumeroCasilla() == 1 );
-        INFO("FUNCIONALIDAD ESPERADA: El tipo de casilla base debe ser 'N'.\nSUGERENCIA DE PROGRAMACIÓN: Revisa el valor por defecto del atributo tipo en CCasilla.");
+
+        INFO("FUNCIONALIDAD ESPERADA: El tipo de casilla base debe ser 'N' por defecto.");
+        INFO("SUGERENCIA DE PROGRAMACIÓN: Asegúrate de que el atributo tipo se inicialice con 'N' en CCasilla.");
         REQUIRE( c1.getTipo() == "N" );
-        INFO("FUNCIONALIDAD ESPERADA: La siguiente casilla debe ser la actual más NOR_PREMIO_CASTIGO.\nSUGERENCIA DE PROGRAMACIÓN: Asegúrate de que getSiguienteCasilla() sume correctamente el premio/castigo.");
+
+        INFO("FUNCIONALIDAD ESPERADA: La siguiente casilla debe calcularse sumando NOR_PREMIO_CASTIGO al número actual.");
+        INFO("SUGERENCIA DE PROGRAMACIÓN: Revisa que getSiguienteCasilla() use correctamente premio_castigo.");
         REQUIRE( c1.getSiguienteCasilla() == c1.getNumeroCasilla() + NOR_PREMIO_CASTIGO );
-        INFO("FUNCIONALIDAD ESPERADA: El número de casilla debe coincidir con el valor dado al constructor.\nSUGERENCIA DE PROGRAMACIÓN: Verifica la asignación del parámetro en el constructor de CCasilla.");
+
+        INFO("FUNCIONALIDAD ESPERADA: El constructor debe asignar el número de casilla especificado.");
+        INFO("SUGERENCIA DE PROGRAMACIÓN: Verifica que el constructor con parámetros asigne correctamente el número.");
         REQUIRE( c2.getNumeroCasilla() == 2);
-        INFO("FUNCIONALIDAD ESPERADA: El tipo debe ser 'E' para casilla especial.\nSUGERENCIA DE PROGRAMACIÓN: Revisa la asignación del tipo en el constructor.");
+
+        INFO("FUNCIONALIDAD ESPERADA: El tipo debe ser el especificado en el constructor ('E').");
+        INFO("SUGERENCIA DE PROGRAMACIÓN: Asegúrate de que el constructor asigne el tipo recibido como parámetro.");
         REQUIRE( c2.getTipo() == "E" );
-        INFO("FUNCIONALIDAD ESPERADA: La siguiente casilla debe considerar NOR_PREMIO_CASTIGO.\nSUGERENCIA DE PROGRAMACIÓN: Verifica la lógica de getSiguienteCasilla().");
+
+        INFO("FUNCIONALIDAD ESPERADA: Debe calcular correctamente la siguiente casilla con NOR_PREMIO_CASTIGO.");
+        INFO("SUGERENCIA DE PROGRAMACIÓN: Verifica la inicialización de premio_castigo en el constructor.");
         REQUIRE( c2.getSiguienteCasilla() == c2.getNumeroCasilla() + NOR_PREMIO_CASTIGO);
-        INFO("FUNCIONALIDAD ESPERADA: El número de casilla debe ser 3.\nSUGERENCIA DE PROGRAMACIÓN: Confirma que el constructor asigne correctamente el número.");
+
+        INFO("FUNCIONALIDAD ESPERADA: El número debe ser 3 según el constructor.");
+        INFO("SUGERENCIA DE PROGRAMACIÓN: Confirma la asignación correcta en el constructor parametrizado.");
         REQUIRE( c3.getNumeroCasilla() == 3);
-        INFO("FUNCIONALIDAD ESPERADA: El tipo debe ser 'S' para casilla serpiente.\nSUGERENCIA DE PROGRAMACIÓN: Revisa la lógica de asignación del tipo.");
+
+        INFO("FUNCIONALIDAD ESPERADA: El tipo debe ser 'S' como se especificó.");
+        INFO("SUGERENCIA DE PROGRAMACIÓN: Verifica que el parámetro tipo se asigne correctamente.");
         REQUIRE( c3.getTipo() == "S" );
-        INFO("FUNCIONALIDAD ESPERADA: La siguiente casilla debe sumar NOR_PREMIO_CASTIGO.\nSUGERENCIA DE PROGRAMACIÓN: Asegúrate de que la suma sea correcta.");
+
+        INFO("FUNCIONALIDAD ESPERADA: La siguiente casilla debe sumarse con NOR_PREMIO_CASTIGO.");
+        INFO("SUGERENCIA DE PROGRAMACIÓN: Revisa que premio_castigo tenga el valor correcto en CCasilla.");
         REQUIRE( c3.getSiguienteCasilla() == c3.getNumeroCasilla() + NOR_PREMIO_CASTIGO);
     }
 }
@@ -47,18 +64,28 @@ TEST_CASE("ex1", "[Casillas Normales bien formadas]")
     CasillaNormal c1, c2(3);
 
     SECTION( "Validando casillas Normales" ) {
-        INFO("FUNCIONALIDAD ESPERADA: CasillaNormal debe iniciar en 1 si no se indica otro valor.\nSUGERENCIA DE PROGRAMACIÓN: Revisa el constructor por omisión de CasillaNormal.");
+        INFO("FUNCIONALIDAD ESPERADA: CasillaNormal debe iniciar en 1 por defecto.");
+        INFO("SUGERENCIA DE PROGRAMACIÓN: Verifica que el constructor por omisión invoque correctamente al constructor base.");
         REQUIRE( c1.getNumeroCasilla() == 1 );
-        INFO("FUNCIONALIDAD ESPERADA: El tipo de CasillaNormal debe ser 'N'.\nSUGERENCIA DE PROGRAMACIÓN: Verifica el valor de tipo en CasillaNormal.");
+
+        INFO("FUNCIONALIDAD ESPERADA: El tipo de CasillaNormal debe ser 'N'.");
+        INFO("SUGERENCIA DE PROGRAMACIÓN: Asegúrate de heredar correctamente el tipo de CCasilla.");
         REQUIRE( c1.getTipo() == "N" );
-        INFO("FUNCIONALIDAD ESPERADA: La siguiente casilla debe sumar NOR_PREMIO_CASTIGO.\nSUGERENCIA DE PROGRAMACIÓN: Revisa la función getSiguienteCasilla().");
+
+        INFO("FUNCIONALIDAD ESPERADA: Debe calcular la siguiente casilla sumando NOR_PREMIO_CASTIGO.");
+        INFO("SUGERENCIA DE PROGRAMACIÓN: Verifica que premio_castigo mantenga el valor de NOR_PREMIO_CASTIGO.");
         REQUIRE( c1.getSiguienteCasilla() == c1.getNumeroCasilla() + NOR_PREMIO_CASTIGO);
 
-        INFO("FUNCIONALIDAD ESPERADA: El número de casilla debe ser 3.\nSUGERENCIA DE PROGRAMACIÓN: Verifica la asignación del parámetro en el constructor.");
+        INFO("FUNCIONALIDAD ESPERADA: El constructor debe asignar el número especificado (3).");
+        INFO("SUGERENCIA DE PROGRAMACIÓN: Verifica la asignación del parámetro numero en CasillaNormal.");
         REQUIRE( c2.getNumeroCasilla() == 3 );
-        INFO("FUNCIONALIDAD ESPERADA: El tipo debe ser 'N'.\nSUGERENCIA DE PROGRAMACIÓN: Revisa el valor asignado a tipo.");
+
+        INFO("FUNCIONALIDAD ESPERADA: El tipo debe seguir siendo 'N'.");
+        INFO("SUGERENCIA DE PROGRAMACIÓN: Confirma que tipo no se modifique en el constructor parametrizado.");
         REQUIRE( c2.getTipo() == "N" );
-        INFO("FUNCIONALIDAD ESPERADA: La siguiente casilla debe sumar NOR_PREMIO_CASTIGO.\nSUGERENCIA DE PROGRAMACIÓN: Verifica la suma en getSiguienteCasilla().");
+
+        INFO("FUNCIONALIDAD ESPERADA: La siguiente casilla debe calcularse correctamente.");
+        INFO("SUGERENCIA DE PROGRAMACIÓN: Asegúrate de que getSiguienteCasilla() funcione con herencia.");
         REQUIRE( c2.getSiguienteCasilla() == c2.getNumeroCasilla() + NOR_PREMIO_CASTIGO);
     }
 }
@@ -68,18 +95,28 @@ TEST_CASE("ex2", "[Casillas Escalera bien formadas]")
     CasillaEscalera c1, c2(3);
 
     SECTION( "Validando casillas Escalera" ) {
-        INFO("FUNCIONALIDAD ESPERADA: CasillaEscalera debe iniciar en 1 si no se indica otro valor.\nSUGERENCIA DE PROGRAMACIÓN: Revisa el constructor por omisión de CasillaEscalera.");
+        INFO("FUNCIONALIDAD ESPERADA: CasillaEscalera debe iniciar en 1 por defecto.");
+        INFO("SUGERENCIA DE PROGRAMACIÓN: Verifica el constructor por omisión de CasillaEscalera.");
         REQUIRE( c1.getNumeroCasilla() == 1 );
-        INFO("FUNCIONALIDAD ESPERADA: El tipo de CasillaEscalera debe ser 'L'.\nSUGERENCIA DE PROGRAMACIÓN: Verifica el valor de tipo en CasillaEscalera.");
+
+        INFO("FUNCIONALIDAD ESPERADA: El tipo de CasillaEscalera debe ser 'L'.");
+        INFO("SUGERENCIA DE PROGRAMACIÓN: Asegúrate de asignar 'L' al atributo tipo en CasillaEscalera.");
         REQUIRE( c1.getTipo() == "L" );
-        INFO("FUNCIONALIDAD ESPERADA: La siguiente casilla debe sumar ESC_PREMIO_CASTIGO.\nSUGERENCIA DE PROGRAMACIÓN: Revisa la función getSiguienteCasilla().");
+
+        INFO("FUNCIONALIDAD ESPERADA: Debe sumar ESC_PREMIO_CASTIGO para obtener la siguiente casilla.");
+        INFO("SUGERENCIA DE PROGRAMACIÓN: Verifica que premio_castigo se inicialice con ESC_PREMIO_CASTIGO.");
         REQUIRE( c1.getSiguienteCasilla() == c1.getNumeroCasilla() + ESC_PREMIO_CASTIGO );
 
-        INFO("FUNCIONALIDAD ESPERADA: El número de casilla debe ser 3.\nSUGERENCIA DE PROGRAMACIÓN: Verifica la asignación del parámetro en el constructor.");
+        INFO("FUNCIONALIDAD ESPERADA: El número debe ser 3 según el constructor.");
+        INFO("SUGERENCIA DE PROGRAMACIÓN: Confirma la asignación del parámetro en CasillaEscalera.");
         REQUIRE( c2.getNumeroCasilla() == 3 );
-        INFO("FUNCIONALIDAD ESPERADA: El tipo debe ser 'L'.\nSUGERENCIA DE PROGRAMACIÓN: Revisa el valor asignado a tipo.");
+
+        INFO("FUNCIONALIDAD ESPERADA: El tipo debe ser 'L' para escaleras.");
+        INFO("SUGERENCIA DE PROGRAMACIÓN: Verifica que el constructor invoque correctamente al constructor base con 'L'.");
         REQUIRE( c2.getTipo() == "L" );
-        INFO("FUNCIONALIDAD ESPERADA: La siguiente casilla debe sumar ESC_PREMIO_CASTIGO.\nSUGERENCIA DE PROGRAMACIÓN: Verifica la suma en getSiguienteCasilla().");
+
+        INFO("FUNCIONALIDAD ESPERADA: La siguiente casilla debe calcularse con ESC_PREMIO_CASTIGO.");
+        INFO("SUGERENCIA DE PROGRAMACIÓN: Asegúrate de que premio_castigo mantenga el valor correcto.");
         REQUIRE( c2.getSiguienteCasilla() == c2.getNumeroCasilla() + ESC_PREMIO_CASTIGO );
     }
 }
@@ -89,18 +126,28 @@ TEST_CASE("ex3", "[Casillas Serpiente bien formadas]")
     CasillaSerpiente c1, c2(10);
 
     SECTION( "Validando casillas Serpiente" ) {
-        INFO("FUNCIONALIDAD ESPERADA: CasillaSerpiente debe iniciar en 1 menos SER_PREMIO_CASTIGO si no se indica otro valor.\nSUGERENCIA DE PROGRAMACIÓN: Revisa el constructor por omisión de CasillaSerpiente.");
+        INFO("FUNCIONALIDAD ESPERADA: CasillaSerpiente debe iniciar en 1 - SER_PREMIO_CASTIGO por defecto.");
+        INFO("SUGERENCIA DE PROGRAMACIÓN: Verifica que el constructor ajuste el número considerando el castigo.");
         REQUIRE( c1.getNumeroCasilla() == 1 - SER_PREMIO_CASTIGO );
-        INFO("FUNCIONALIDAD ESPERADA: El tipo de CasillaSerpiente debe ser 'S'.\nSUGERENCIA DE PROGRAMACIÓN: Verifica el valor de tipo en CasillaSerpiente.");
+
+        INFO("FUNCIONALIDAD ESPERADA: El tipo de CasillaSerpiente debe ser 'S'.");
+        INFO("SUGERENCIA DE PROGRAMACIÓN: Asegúrate de asignar 'S' al atributo tipo.");
         REQUIRE( c1.getTipo() == "S" );
-        INFO("FUNCIONALIDAD ESPERADA: La siguiente casilla debe sumar SER_PREMIO_CASTIGO.\nSUGERENCIA DE PROGRAMACIÓN: Revisa la función getSiguienteCasilla().");
+
+        INFO("FUNCIONALIDAD ESPERADA: Debe sumar SER_PREMIO_CASTIGO (negativo) para retroceder.");
+        INFO("SUGERENCIA DE PROGRAMACIÓN: Verifica que premio_castigo tenga el valor SER_PREMIO_CASTIGO.");
         REQUIRE( c1.getSiguienteCasilla() == c1.getNumeroCasilla() + SER_PREMIO_CASTIGO);
 
-        INFO("FUNCIONALIDAD ESPERADA: El número de casilla debe ser 10.\nSUGERENCIA DE PROGRAMACIÓN: Verifica la asignación del parámetro en el constructor.");
+        INFO("FUNCIONALIDAD ESPERADA: El número debe ser 10 como se especificó.");
+        INFO("SUGERENCIA DE PROGRAMACIÓN: Confirma que el constructor parametrizado asigne correctamente el número.");
         REQUIRE( c2.getNumeroCasilla() == 10 );
-        INFO("FUNCIONALIDAD ESPERADA: El tipo debe ser 'S'.\nSUGERENCIA DE PROGRAMACIÓN: Revisa el valor asignado a tipo.");
+
+        INFO("FUNCIONALIDAD ESPERADA: El tipo debe ser 'S' para serpientes.");
+        INFO("SUGERENCIA DE PROGRAMACIÓN: Verifica la asignación del tipo en el constructor con parámetros.");
         REQUIRE( c2.getTipo() == "S" );
-        INFO("FUNCIONALIDAD ESPERADA: La siguiente casilla debe sumar SER_PREMIO_CASTIGO.\nSUGERENCIA DE PROGRAMACIÓN: Verifica la suma en getSiguienteCasilla().");
+
+        INFO("FUNCIONALIDAD ESPERADA: La siguiente casilla debe considerar el castigo negativo.");
+        INFO("SUGERENCIA DE PROGRAMACIÓN: Asegúrate de inicializar premio_castigo con SER_PREMIO_CASTIGO.");
         REQUIRE( c2.getSiguienteCasilla() == c2.getNumeroCasilla() + SER_PREMIO_CASTIGO);
     }
 }
@@ -110,25 +157,40 @@ TEST_CASE("ex4", "[Polimorfismo de casillas]")
     CCasilla c1{CasillaNormal(1)}, c2{CasillaEscalera(3)}, c3{CasillaSerpiente(10)};
 
     SECTION( "Validando casillas Normales, Escalera, Serpiente polimorficamente" ) {
-        INFO("FUNCIONALIDAD ESPERADA: El número de casilla debe ser 1 para CasillaNormal.\nSUGERENCIA DE PROGRAMACIÓN: Verifica la correcta construcción y conversión polimórfica.");
+        INFO("FUNCIONALIDAD ESPERADA: Debe funcionar polimórficamente con CasillaNormal número 1.");
+        INFO("SUGERENCIA DE PROGRAMACIÓN: Verifica que CCasilla permita conversión desde clases derivadas.");
         REQUIRE( c1.getNumeroCasilla() == 1 );
-        INFO("FUNCIONALIDAD ESPERADA: El tipo debe ser 'N' para CasillaNormal.\nSUGERENCIA DE PROGRAMACIÓN: Revisa la herencia y el método getTipo().");
+
+        INFO("FUNCIONALIDAD ESPERADA: El polimorfismo debe preservar el tipo 'N'.");
+        INFO("SUGERENCIA DE PROGRAMACIÓN: Asegúrate de que getTipo() sea virtual si es necesario.");
         REQUIRE( c1.getTipo() == "N" );
-        INFO("FUNCIONALIDAD ESPERADA: La siguiente casilla debe sumar NOR_PREMIO_CASTIGO.\nSUGERENCIA DE PROGRAMACIÓN: Verifica la función getSiguienteCasilla().");
+
+        INFO("FUNCIONALIDAD ESPERADA: getSiguienteCasilla() debe funcionar polimórficamente.");
+        INFO("SUGERENCIA DE PROGRAMACIÓN: Verifica que los métodos virtuales funcionen correctamente.");
         REQUIRE( c1.getSiguienteCasilla() == c1.getNumeroCasilla() + NOR_PREMIO_CASTIGO );
 
-        INFO("FUNCIONALIDAD ESPERADA: El número de casilla debe ser 3 para CasillaEscalera.\nSUGERENCIA DE PROGRAMACIÓN: Verifica la correcta construcción y conversión polimórfica.");
+        INFO("FUNCIONALIDAD ESPERADA: Debe funcionar polimórficamente con CasillaEscalera número 3.");
+        INFO("SUGERENCIA DE PROGRAMACIÓN: Confirma la construcción correcta desde clase derivada.");
         REQUIRE( c2.getNumeroCasilla() == 3 );
-        INFO("FUNCIONALIDAD ESPERADA: El tipo debe ser 'L' para CasillaEscalera.\nSUGERENCIA DE PROGRAMACIÓN: Revisa la herencia y el método getTipo().");
+
+        INFO("FUNCIONALIDAD ESPERADA: El polimorfismo debe preservar el tipo 'L'.");
+        INFO("SUGERENCIA DE PROGRAMACIÓN: Verifica la herencia de atributos en el polimorfismo.");
         REQUIRE( c2.getTipo() == "L" );
-        INFO("FUNCIONALIDAD ESPERADA: La siguiente casilla debe sumar ESC_PREMIO_CASTIGO.\nSUGERENCIA DE PROGRAMACIÓN: Verifica la función getSiguienteCasilla().");
+
+        INFO("FUNCIONALIDAD ESPERADA: Debe calcular correctamente con ESC_PREMIO_CASTIGO.");
+        INFO("SUGERENCIA DE PROGRAMACIÓN: Asegúrate de que premio_castigo se preserve en la conversión.");
         REQUIRE( c2.getSiguienteCasilla() == c2.getNumeroCasilla() + ESC_PREMIO_CASTIGO );
 
-        INFO("FUNCIONALIDAD ESPERADA: El número de casilla debe ser 10 para CasillaSerpiente.\nSUGERENCIA DE PROGRAMACIÓN: Verifica la correcta construcción y conversión polimórfica.");
+        INFO("FUNCIONALIDAD ESPERADA: Debe funcionar polimórficamente con CasillaSerpiente número 10.");
+        INFO("SUGERENCIA DE PROGRAMACIÓN: Verifica la conversión correcta de CasillaSerpiente a CCasilla.");
         REQUIRE( c3.getNumeroCasilla() == 10 );
-        INFO("FUNCIONALIDAD ESPERADA: El tipo debe ser 'S' para CasillaSerpiente.\nSUGERENCIA DE PROGRAMACIÓN: Revisa la herencia y el método getTipo().");
+
+        INFO("FUNCIONALIDAD ESPERADA: El polimorfismo debe preservar el tipo 'S'.");
+        INFO("SUGERENCIA DE PROGRAMACIÓN: Confirma que los atributos se copien correctamente.");
         REQUIRE( c3.getTipo() == "S" );
-        INFO("FUNCIONALIDAD ESPERADA: La siguiente casilla debe sumar SER_PREMIO_CASTIGO.\nSUGERENCIA DE PROGRAMACIÓN: Verifica la función getSiguienteCasilla().");
+
+        INFO("FUNCIONALIDAD ESPERADA: Debe calcular correctamente con SER_PREMIO_CASTIGO.");
+        INFO("SUGERENCIA DE PROGRAMACIÓN: Verifica que el valor negativo se preserve en la conversión.");
         REQUIRE( c3.getSiguienteCasilla() == c3.getNumeroCasilla() + SER_PREMIO_CASTIGO );
     }
 }
@@ -150,7 +212,8 @@ TEST_CASE("ex5", "[Tablero bien formado]")
         t.setCasilla(CasillaSerpiente(25), 25);
 
         t.print();
-        INFO("FUNCIONALIDAD ESPERADA: El tablero debe permitir agregar casillas especiales y mostrarlas correctamente.\nSUGERENCIA DE PROGRAMACIÓN: Verifica la implementación de setCasilla y print.");
+        INFO("FUNCIONALIDAD ESPERADA: El tablero debe permitir agregar y mostrar casillas especiales.");
+        INFO("SUGERENCIA DE PROGRAMACIÓN: Verifica que setCasilla() y print() funcionen correctamente.");
         REQUIRE( true );
     }
 
@@ -158,32 +221,48 @@ TEST_CASE("ex5", "[Tablero bien formado]")
         Tablero tf("t1.tab");
 
         tf.print();
-        INFO("FUNCIONALIDAD ESPERADA: El tablero debe cargarse correctamente desde archivo.\nSUGERENCIA DE PROGRAMACIÓN: Revisa la lectura y parseo del archivo en el constructor de Tablero.");
+        INFO("FUNCIONALIDAD ESPERADA: El tablero debe cargarse correctamente desde archivo.");
+        INFO("SUGERENCIA DE PROGRAMACIÓN: Verifica el constructor de Tablero que recibe un string con el nombre del archivo.");
         REQUIRE( true );
     }
 
     SECTION( "Validando casillas en Tablero ") {
         Tablero tf("t1.tab");
 
-        INFO("FUNCIONALIDAD ESPERADA: La casilla 1 debe existir y tener número 1.\nSUGERENCIA DE PROGRAMACIÓN: Verifica el método getCasilla y la inicialización del tablero.");
+        INFO("FUNCIONALIDAD ESPERADA: getCasilla(1) debe devolver la casilla número 1.");
+        INFO("SUGERENCIA DE PROGRAMACIÓN: Verifica que getCasilla() acceda correctamente al arreglo de casillas.");
         REQUIRE (tf.getCasilla(1).getNumeroCasilla()==1);
-        INFO("FUNCIONALIDAD ESPERADA: El tipo de la casilla 1 debe ser 'N'.\nSUGERENCIA DE PROGRAMACIÓN: Revisa la asignación de tipo en la carga del tablero.");
+
+        INFO("FUNCIONALIDAD ESPERADA: La casilla 1 debe ser de tipo 'N' según el archivo.");
+        INFO("SUGERENCIA DE PROGRAMACIÓN: Revisa la lectura y asignación de tipos desde el archivo.");
         REQUIRE (tf.getCasilla(1).getTipo()=="N");
-        INFO("FUNCIONALIDAD ESPERADA: La siguiente casilla debe sumar NOR_PREMIO_CASTIGO.\nSUGERENCIA DE PROGRAMACIÓN: Verifica la lógica de getSiguienteCasilla().");
+
+        INFO("FUNCIONALIDAD ESPERADA: Debe calcular correctamente la siguiente casilla.");
+        INFO("SUGERENCIA DE PROGRAMACIÓN: Asegúrate de que las casillas cargadas mantengan sus propiedades.");
         REQUIRE (tf.getCasilla(1).getSiguienteCasilla()==tf.getCasilla(1).getNumeroCasilla()+NOR_PREMIO_CASTIGO);
 
-        INFO("FUNCIONALIDAD ESPERADA: La casilla 10 debe existir y tener número 10.\nSUGERENCIA DE PROGRAMACIÓN: Verifica la carga de casillas especiales.");
+        INFO("FUNCIONALIDAD ESPERADA: getCasilla(10) debe devolver la casilla número 10.");
+        INFO("SUGERENCIA DE PROGRAMACIÓN: Confirma que el índice se maneje correctamente (i-1 en el arreglo).");
         REQUIRE (tf.getCasilla(10).getNumeroCasilla()==10);
-        INFO("FUNCIONALIDAD ESPERADA: El tipo de la casilla 10 debe ser 'L'.\nSUGERENCIA DE PROGRAMACIÓN: Revisa la asignación de tipo en la carga del tablero.");
+
+        INFO("FUNCIONALIDAD ESPERADA: La casilla 10 debe ser de tipo 'L' según el archivo t1.tab.");
+        INFO("SUGERENCIA DE PROGRAMACIÓN: Verifica que el archivo se lea línea por línea correctamente.");
         REQUIRE (tf.getCasilla(10).getTipo()=="L");
-        INFO("FUNCIONALIDAD ESPERADA: La siguiente casilla debe sumar ESC_PREMIO_CASTIGO.\nSUGERENCIA DE PROGRAMACIÓN: Verifica la lógica de getSiguienteCasilla().");
+
+        INFO("FUNCIONALIDAD ESPERADA: Debe usar ESC_PREMIO_CASTIGO para escaleras.");
+        INFO("SUGERENCIA DE PROGRAMACIÓN: Asegúrate de que CasillaEscalera se instancie correctamente desde archivo.");
         REQUIRE (tf.getCasilla(10).getSiguienteCasilla()==tf.getCasilla(10).getNumeroCasilla()+ESC_PREMIO_CASTIGO);
 
-        INFO("FUNCIONALIDAD ESPERADA: La casilla 25 debe existir y tener número 25.\nSUGERENCIA DE PROGRAMACIÓN: Verifica la carga de casillas especiales.");
+        INFO("FUNCIONALIDAD ESPERADA: getCasilla(25) debe devolver la casilla número 25.");
+        INFO("SUGERENCIA DE PROGRAMACIÓN: Verifica el acceso al arreglo con índices grandes.");
         REQUIRE (tf.getCasilla(25).getNumeroCasilla()==25);
-        INFO("FUNCIONALIDAD ESPERADA: El tipo de la casilla 25 debe ser 'S'.\nSUGERENCIA DE PROGRAMACIÓN: Revisa la asignación de tipo en la carga del tablero.");
+
+        INFO("FUNCIONALIDAD ESPERADA: La casilla 25 debe ser de tipo 'S' según el archivo.");
+        INFO("SUGERENCIA DE PROGRAMACIÓN: Confirma que se creen CasillaSerpiente cuando corresponda.");
         REQUIRE (tf.getCasilla(25).getTipo()=="S");
-        INFO("FUNCIONALIDAD ESPERADA: La siguiente casilla debe sumar SER_PREMIO_CASTIGO.\nSUGERENCIA DE PROGRAMACIÓN: Verifica la lógica de getSiguienteCasilla().");
+
+        INFO("FUNCIONALIDAD ESPERADA: Debe usar SER_PREMIO_CASTIGO para serpientes.");
+        INFO("SUGERENCIA DE PROGRAMACIÓN: Verifica que CasillaSerpiente mantenga el castigo negativo.");
         REQUIRE (tf.getCasilla(25).getSiguienteCasilla()==tf.getCasilla(25).getNumeroCasilla()+SER_PREMIO_CASTIGO);
 
     }
@@ -194,11 +273,13 @@ TEST_CASE("ex6", "[Jugador bien formado]")
     SECTION( "Validando Jugador" ) {
         Jugador j(1), k(2);
 
-        INFO("FUNCIONALIDAD ESPERADA: El jugador debe iniciar en la casilla indicada.\nSUGERENCIA DE PROGRAMACIÓN: Verifica el constructor y el valor inicial de casilla_actual.");
+        INFO("FUNCIONALIDAD ESPERADA: El jugador debe iniciar en la casilla 1.");
+        INFO("SUGERENCIA DE PROGRAMACIÓN: Verifica que el constructor inicialice casilla_actual en 1.");
         REQUIRE(j.getCasilla_actual()==1);
 
         k.setCasilla_actual(10);
-        INFO("FUNCIONALIDAD ESPERADA: El método setCasilla_actual debe actualizar la posición del jugador.\nSUGERENCIA DE PROGRAMACIÓN: Revisa la implementación de setCasilla_actual.");
+        INFO("FUNCIONALIDAD ESPERADA: setCasilla_actual debe actualizar la posición del jugador.");
+        INFO("SUGERENCIA DE PROGRAMACIÓN: Confirma que el método asigne correctamente el nuevo valor.");
         REQUIRE(k.getCasilla_actual()==10);
     }
 }
@@ -212,7 +293,8 @@ TEST_CASE("ex7", "[Dado no aleatorio-secuencial]")
         {
             std::cout << d.getValorDado() << "\n";
         }
-        INFO("FUNCIONALIDAD ESPERADA: El dado debe generar valores secuenciales del 1 al 6 si no es aleatorio.\nSUGERENCIA DE PROGRAMACIÓN: Verifica la lógica de incremento y reinicio en getValorDado().");
+        INFO("FUNCIONALIDAD ESPERADA: El dado debe generar valores secuenciales 1-6 cuando no es aleatorio.");
+        INFO("SUGERENCIA DE PROGRAMACIÓN: Verifica que getValorDado() incremente cara y use módulo 6.");
         REQUIRE(true);
     }
 }
@@ -230,7 +312,8 @@ TEST_CASE("ex8", "[Ejecucion de Juego Manual]")
 
         delete gm;
         
-        INFO("FUNCIONALIDAD ESPERADA: El juego manual debe ejecutarse correctamente y generar el archivo de salida esperado.\nSUGERENCIA DE PROGRAMACIÓN: Verifica la lógica de flujo en GameManual y la escritura de archivos.");
+        INFO("FUNCIONALIDAD ESPERADA: El juego manual debe generar salida idéntica al archivo esperado.");
+        INFO("SUGERENCIA DE PROGRAMACIÓN: Verifica que GameManual implemente correctamente getInput() y que start() genere la salida esperada.");
         REQUIRE(chkFiles("output", "test/toutput"));
     }
 }
@@ -253,9 +336,12 @@ TEST_CASE("ex9", "[Ejecucion de Juego Automatico]")
 
         delete ga;
             
-        INFO("FUNCIONALIDAD ESPERADA: La entrada del juego automático debe ser siempre 'C'.\nSUGERENCIA DE PROGRAMACIÓN: Verifica la función getInput() en GameAutomatic.");
+        INFO("FUNCIONALIDAD ESPERADA: GameAutomatic::getInput() debe siempre devolver 'C'.");
+        INFO("SUGERENCIA DE PROGRAMACIÓN: Verifica que el método getInput() en GameAutomatic retorne la cadena 'C' sin leer de archivo o teclado.");
         REQUIRE(isC);   
-        INFO("FUNCIONALIDAD ESPERADA: El juego automático debe generar el archivo de salida esperado.\nSUGERENCIA DE PROGRAMACIÓN: Verifica la lógica de flujo en GameAutomatic y la escritura de archivos.");
+
+        INFO("FUNCIONALIDAD ESPERADA: El juego automático debe generar salida idéntica al archivo esperado.");
+        INFO("SUGERENCIA DE PROGRAMACIÓN: Confirma que la lógica de start() funcione correctamente con entrada automática.");
         REQUIRE(chkFiles("output", "test/toutput"));
     }
 }
