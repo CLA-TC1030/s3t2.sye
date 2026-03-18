@@ -4,6 +4,12 @@
 
 Esta tarea consiste en extender el Juego de Serpientes y Escaleras usando Polimorfismo.
 
+<p align="center">
+  <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/09/Snakes_and_ladders_example.png/600px-Snakes_and_ladders_example.png"
+       alt="Tablero de serpientes y escaleras (versión simple)"
+       width="300">
+</p>
+
 ## Ejemplo de Ejecución-1:
 ```
 Juego Manual : Entrada desde el Teclado : Salida en la Pantalla:
